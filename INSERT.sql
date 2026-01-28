@@ -4,15 +4,23 @@ VALUES
     ('Trash Metal'),
 	('Heavy Metal'),
 	('Power Metal'),
-    ('Symphonic Metal');
+    ('Symphonic Metal'),
+    ('Test genre');
 
 INSERT INTO artist (name)
 VALUES
     ('Metallica'), -- Trash Metal, Heavy Metal, Speed Metal
     ('Manowar'), -- Heavy Metal
 	('Van Canto'), -- Power Metal, Symphonic Metal
-    ('Rage'); -- Power Metal, Speed Metal
+    ('Rage'), -- Power Metal, Speed Metal
+    ('Test band'); -- Test genre
 
+INSERT INTO artist_genre (artist_id, genre_id)
+VALUES
+(
+    (SELECT id FROM artist WHERE name = 'Test band'),
+    (SELECT id FROM genre WHERE name = 'Test genre')
+);
 
 -- Metallica - Trash Metal, Heavy Metal, Speed Metal
 INSERT INTO artist_genre (artist_id, genre_id)
@@ -76,7 +84,16 @@ VALUES
     ('To the Power of Eight', 2021), -- Van Canto
     
     ('Unity', 2002), -- Rage
-	('Wings of Rage', 2020); -- Rage
+	('Wings of Rage', 2020), -- Rage
+    
+    ('Test album', 2000); -- Test band
+
+INSERT INTO artist_album (artist_id, album_id)
+VALUES
+(
+    (SELECT id FROM artist WHERE name = 'Test band'),
+    (SELECT id FROM album WHERE title = 'Test album')
+);
 
 
 -- Metallica
@@ -232,8 +249,80 @@ VALUES
     'Chasing the Twilight Zone',
     270,
     (SELECT id FROM album WHERE title = 'Wings of Rage')
+),
+-------------------------------------------------------------
+(
+    'my own',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'own my',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'my',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'oh my god',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'myself',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'by myself',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'bemy self',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'myself by',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'by myself by',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'beemy',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'premyne',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'Мой трек',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'Мойдодыр',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
+),
+(
+    'Немой',
+    300,
+    (SELECT id FROM album WHERE title = 'Test album')
 );
 
+-------------------------------------------------------------
 
 INSERT INTO compilation (title, release_year)
 VALUES ('Metallica and Van Canto', 2015);
