@@ -10,7 +10,7 @@ LIMIT 1;
 -- (3,5 минут = 210 секунд)
 SELECT title
 FROM track
-WHERE duration > 210;
+WHERE duration >= 210;
 
 -- Названия сборников, вышедших в период с 2018 по 2020 год включительно.
 SELECT title
